@@ -9,8 +9,8 @@ script = ExtResource("1_kpr8r")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_m1htj")]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wovta")
+
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("2_wovta")

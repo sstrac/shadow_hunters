@@ -7,5 +7,6 @@ func _physics_process(delta: float):
 
 
 func move_towards_player_node(delta: float):
+	print(position)
 	var direction = (player_body.position - position).normalized()
 	position += direction * speed * delta
