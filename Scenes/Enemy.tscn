@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu233gff1gn8a"]
+
+[ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy_movement.gd" id="1_kpr8r"]
+[ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_m1htj"]
+[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="2_wovta"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_kpr8r")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_m1htj")]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_wovta")

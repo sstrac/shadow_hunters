@@ -2,7 +2,6 @@ extends Node
 
 var maximum_health : int = 100
 var current_health : int = 100 
-@export var example : Node
 signal has_died
 
 func _ready():

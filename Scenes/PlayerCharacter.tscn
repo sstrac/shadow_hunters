@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://rgcace126kog"]
+
+[ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player_character_body_2d.gd" id="1_2getf"]
+[ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
+[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="2_2getf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
+size = Vector2(128, 128)
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_2getf")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_5gnj7")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2getf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mdaju")
