@@ -3,10 +3,9 @@ extends Node2D
 @export var speed : int
 
 func _physics_process(delta: float):
-	get_direction_to_player(delta)
+	move_towards_player_node(delta)
 
 
-func get_direction_to_player(delta: float):
+func move_towards_player_node(delta: float):
 	var direction = (player_body.position - position).normalized()
 	position += direction * speed * delta
-	print(position)
