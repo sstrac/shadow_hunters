@@ -1,9 +1,10 @@
-[gd_scene load_steps=70 format=3 uid="uid://rgcace126kog"]
+[gd_scene load_steps=58 format=3 uid="uid://rgcace126kog"]
 
 [ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player_character_body_2d.gd" id="1_2getf"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
 [ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/Vampires1_Idle_full.png" id="3_2getf"]
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/Vampires1_Walk_full.png" id="4_mdaju"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://yfigdsm258rj" path="res://Assets/player_movement.tres" id="5_r4x55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(11, 24)
@@ -303,6 +304,18 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_r4x55"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
 
 [sub_resource type="Animation" id="Animation_id6tp"]
 resource_name = "idle_down"
@@ -331,18 +344,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_k5f8r"]
@@ -373,18 +374,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"idle"]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_cl0yw"]
 resource_name = "idle_right"
@@ -413,18 +402,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_wnmxb"]
@@ -455,18 +432,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"idle"]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_vjvuw"]
 resource_name = "walk_down"
@@ -496,18 +461,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5]
-}
 
 [sub_resource type="Animation" id="Animation_uvrlg"]
 resource_name = "walk_left"
@@ -528,22 +481,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer:speed_scale")
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -569,22 +510,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer:speed_scale")
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -610,22 +539,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer:speed_scale")
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335, 0.16666667, 0.3, 0.43333334, 0.56666666, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -645,67 +562,6 @@ _data = {
 &"walk_up": SubResource("Animation_mdaju")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2getf"]
-animation = &"idle_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdaju"]
-animation = &"idle_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4x55"]
-animation = &"idle_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_id6tp"]
-animation = &"idle_up"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_2getf"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_2getf")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_mdaju")
-blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_r4x55")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_id6tp")
-blend_point_3/pos = Vector2(0, -1)
-blend_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k5f8r"]
-animation = &"walk_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cl0yw"]
-animation = &"walk_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjvuw"]
-animation = &"walk_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wnmxb"]
-animation = &"walk_down"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_k5f8r"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_k5f8r")
-blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_cl0yw")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_vjvuw")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_wnmxb")
-blend_point_3/pos = Vector2(0, 1)
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdaju"]
-reset = false
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r4x55"]
-reset = false
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mdaju"]
-states/End/position = Vector2(902, 93)
-states/Idle/node = SubResource("AnimationNodeBlendSpace2D_2getf")
-states/Idle/position = Vector2(577, 93)
-states/Start/position = Vector2(384, 93)
-states/Walk/node = SubResource("AnimationNodeBlendSpace2D_k5f8r")
-states/Walk/position = Vector2(735, 93)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_mdaju"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_r4x55")]
-
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_2getf")
 
@@ -717,17 +573,18 @@ shape = SubResource("RectangleShape2D_mdaju")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c8bqh")
-animation = &""
-speed_scale = 0.0
+animation = &"idle"
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_vjvuw")
 }
-speed_scale = 0.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_mdaju")
+tree_root = ExtResource("5_r4x55")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(-0.0063578486, 0.06620216)
-parameters/Walk/blend_position = Vector2(-0.0045413375, 0.09407663)
+parameters/conditions/idle = false
+parameters/conditions/walking = false
+parameters/Idle/blend_position = Vector2(-0.39146233, 0.22869956)
+parameters/Walk/blend_position = Vector2(0.011807442, -0.57847536)
