@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu233gff1gn8a"]
+[gd_scene load_steps=6 format=3 uid="uid://bu233gff1gn8a"]
 
 [ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy_movement.gd" id="1_kpr8r"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_m1htj"]
 [ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="2_wovta"]
+[ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy_collision.gd" id="4_kpr8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_kpr8r")
@@ -12,5 +15,11 @@ script = ExtResource("1_kpr8r")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_wovta")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("enemy_2d_node")]
+script = ExtResource("4_kpr8r")
+enemy_2d_node = NodePath("..")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.9052851, 3.2222028)
+shape = SubResource("RectangleShape2D_xeo28")

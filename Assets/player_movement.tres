@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=3 uid="uid://yfigdsm258rj"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=3 uid="uid://duaic0oqoadsg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aq8tw"]
 animation = &"idle_down"
