@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="1_g6ypt"]
 [ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/PlayerCharacter.tscn" id="3_buwwh"]
-[ext_resource type="PackedScene" uid="uid://bu233gff1gn8a" path="res://Scenes/Enemy.tscn" id="3_gl4sr"]
-[ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/EnemySpawner.tscn" id="4_gl4sr"]
+[ext_resource type="PackedScene" uid="uid://bu233gff1gn8a" path="res://Scenes/enemy/Enemy.tscn" id="3_gl4sr"]
+[ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="4_gl4sr"]
 
 [node name="ExampleLevel" type="Node2D"]
 

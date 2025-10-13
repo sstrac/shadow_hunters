@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player_character_body_2d.gd" id="1_2getf"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
-[ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/Vampires1_Idle_full.png" id="3_2getf"]
-[ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/Vampires1_Walk_full.png" id="4_mdaju"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://yfigdsm258rj" path="res://Assets/player_movement.tres" id="5_r4x55"]
+[ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/img/Vampires1_Idle_full.png" id="3_2getf"]
+[ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(11, 24)
@@ -564,6 +564,7 @@ _data = {
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_2getf")
+metadata/_edit_horizontal_guides_ = [-11.0]
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_5gnj7")]
 

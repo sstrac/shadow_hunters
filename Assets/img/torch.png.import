@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3qp2o7iks8ri"
-path="res://.godot/imported/Vampires1_Walk_full.png-056b7cd5970f851037facd2c290d9eeb.ctex"
+uid="uid://0bawtxa5fsse"
+path="res://.godot/imported/torch.png-f01adbccbfc601951532f2c94b21a6c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Vampires1_Walk_full.png"
-dest_files=["res://.godot/imported/Vampires1_Walk_full.png-056b7cd5970f851037facd2c290d9eeb.ctex"]
+source_file="res://Assets/img/torch.png"
+dest_files=["res://.godot/imported/torch.png-f01adbccbfc601951532f2c94b21a6c6.ctex"]
 
 [params]
 

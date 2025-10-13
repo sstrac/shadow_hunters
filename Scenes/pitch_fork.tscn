@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcddoavqciu3x"]
+
+[ext_resource type="Texture2D" uid="uid://bv7ubrca1vwgc" path="res://Assets/img/pitchfork.png" id="1_a3ar3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xm1a"]
+atlas = ExtResource("1_a3ar3")
+region = Rect2(0, 0, 5, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqrfj"]
+atlas = ExtResource("1_a3ar3")
+region = Rect2(5, 0, 5, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3kb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xm1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqrfj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PitchFork" type="AnimatedSprite2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_b3kb2")
+autoplay = "default"

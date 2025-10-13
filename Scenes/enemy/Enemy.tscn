@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu233gff1gn8a"]
+
+[ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy_movement.gd" id="1_aoy28"]
+[ext_resource type="PackedScene" uid="uid://72fpu6gyhf23" path="res://Scenes/enemy/EnemySprite.tscn" id="2_sbcbh"]
+[ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="3_2hruc"]
+[ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy_collision.gd" id="4_ynj05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
+size = Vector2(5.9849815, 5.867138)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_aoy28")
+speed = 10
+
+[node name="EnemySprite" parent="." instance=ExtResource("2_sbcbh")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_2hruc")]
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("enemy_2d_node")]
+script = ExtResource("4_ynj05")
+enemy_2d_node = NodePath("..")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.0364099e-06, 0)
+scale = Vector2(2.9052844, 3.2222025)
+shape = SubResource("RectangleShape2D_xeo28")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1ox50oiqody"
-path="res://.godot/imported/Vampires1_Death_full.png-a3977b4c5e6817441f19d40ac8417d3f.ctex"
+uid="uid://c7wbee6hsamjv"
+path="res://.godot/imported/agent.png-d7c04228244c829797a3ff8258c1ea02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Vampires1_Death_full.png"
-dest_files=["res://.godot/imported/Vampires1_Death_full.png-a3977b4c5e6817441f19d40ac8417d3f.ctex"]
+source_file="res://Assets/img/agent.png"
+dest_files=["res://.godot/imported/agent.png-d7c04228244c829797a3ff8258c1ea02.ctex"]
 
 [params]
 

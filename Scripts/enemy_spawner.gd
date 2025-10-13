@@ -3,7 +3,7 @@ extends Node2D
 @export var player_body : Node
 @export var speed : int
 
-const enemy_scene = preload("res://Scenes/Enemy.tscn")
+const enemy_scene = preload("res://Scenes/enemy/Enemy.tscn")
 
 func _ready():
 	$SpawnTimer.start()

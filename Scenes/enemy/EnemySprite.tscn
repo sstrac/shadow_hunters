@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://72fpu6gyhf23"]
+
+[ext_resource type="SpriteFrames" uid="uid://u1v1cbvo2ojl" path="res://Assets/spriteframes/enemy_spriteframes.tres" id="1_vlg6w"]
+[ext_resource type="PackedScene" uid="uid://dcddoavqciu3x" path="res://Scenes/pitch_fork.tscn" id="2_p61mc"]
+[ext_resource type="PackedScene" uid="uid://ctvy64jig05p7" path="res://Scenes/torch.tscn" id="3_5jvdr"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_2i3eb"]
+modification_count = 1
+
+[node name="EnemySprite" type="Skeleton2D"]
+modification_stack = SubResource("SkeletonModificationStack2D_2i3eb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_vlg6w")
+autoplay = "default"
+
+[node name="Bone2D" type="Bone2D" parent="."]
+position = Vector2(-8, 1)
+editor_settings/show_bone_gizmo = false
+
+[node name="PitchFork" parent="Bone2D" instance=ExtResource("2_p61mc")]
+visible = true
+
+[node name="Torch" parent="Bone2D" instance=ExtResource("3_5jvdr")]
+position = Vector2(0, 3)
