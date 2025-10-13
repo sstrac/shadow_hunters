@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 
 [node name="Enemy" type="Node2D"]
+scale = Vector2(0.115021326, 0.10579152)
 script = ExtResource("1_kpr8r")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_m1htj")]
