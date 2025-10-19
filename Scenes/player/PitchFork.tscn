@@ -2,22 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://bv7ubrca1vwgc" path="res://Assets/img/pitchfork.png" id="1_a3ar3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xm1a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxr1r"]
 atlas = ExtResource("1_a3ar3")
-region = Rect2(0, 0, 5, 15)
+region = Rect2(0, 0, 6, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqrfj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nip3v"]
 atlas = ExtResource("1_a3ar3")
-region = Rect2(5, 0, 5, 15)
+region = Rect2(6, 0, 6, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b3kb2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6xm1a")
+"texture": SubResource("AtlasTexture_bxr1r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yqrfj")
+"texture": SubResource("AtlasTexture_nip3v")
 }],
 "loop": true,
 "name": &"default",
@@ -28,3 +28,4 @@ animations = [{
 visible = false
 sprite_frames = SubResource("SpriteFrames_b3kb2")
 autoplay = "default"
+frame_progress = 0.20833333
