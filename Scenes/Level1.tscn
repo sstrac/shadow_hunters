@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://umgcdxoyclht"]
+[gd_scene load_steps=5 format=4 uid="uid://umgcdxoyclht"]
 
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="1_2llne"]
 [ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/player/Player.tscn" id="2_q12u6"]
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="3_joc8x"]
+[ext_resource type="PackedScene" uid="uid://by5jn3gf7gt3k" path="res://Scenes/Shadow.tscn" id="4_jghel"]
 
 [node name="Level1" type="Node2D"]
 
@@ -30,3 +31,9 @@ limit_top = 0
 position = Vector2(238, 99)
 player_body = NodePath("../PlayerCharacter")
 speed = 10
+
+[node name="Shadow" parent="." instance=ExtResource("4_jghel")]
+position = Vector2(133, 89)
+
+[node name="Shadow2" parent="." instance=ExtResource("4_jghel")]
+position = Vector2(131, 101)
