@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5qfkdm3k1bty"]
 
-[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="1_g6ypt"]
-[ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/PlayerCharacter.tscn" id="3_buwwh"]
+[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/img/icon.svg" id="1_g6ypt"]
+[ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/player/Player.tscn" id="3_buwwh"]
 [ext_resource type="PackedScene" uid="uid://bu233gff1gn8a" path="res://Scenes/enemy/Enemy.tscn" id="3_gl4sr"]
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="4_gl4sr"]
 
@@ -18,7 +18,6 @@ position = Vector2(873, 251)
 [node name="Enemy" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("3_gl4sr")]
 position = Vector2(622.99994, 256)
 player_body = NodePath("../PlayerCharacter")
-speed = 55
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("4_gl4sr")]
 position = Vector2(438, 109)

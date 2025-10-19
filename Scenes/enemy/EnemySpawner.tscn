@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://beffvkqeoq23"]
 
-[ext_resource type="Script" uid="uid://mkjaqrhux4yv" path="res://Scripts/enemy_spawner.gd" id="1_4b1db"]
-[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/icon.svg" id="2_4l853"]
+[ext_resource type="Script" uid="uid://mkjaqrhux4yv" path="res://Scripts/enemy/enemy_spawner.gd" id="1_4b1db"]
+[ext_resource type="Texture2D" uid="uid://c71b2sf1a5g51" path="res://Assets/img/icon.svg" id="2_4l853"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_4b1db")
