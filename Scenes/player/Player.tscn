@@ -1,13 +1,14 @@
-[gd_scene load_steps=58 format=3 uid="uid://rgcace126kog"]
+[gd_scene load_steps=63 format=3 uid="uid://rgcace126kog"]
 
 [ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player/player.gd" id="1_2getf"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
 [ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/img/Vampires1_Idle_full.png" id="3_2getf"]
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
+[ext_resource type="Script" uid="uid://b2t6spukjcg5f" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
-size = Vector2(11, 24)
+size = Vector2(11, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2getf"]
 atlas = ExtResource("3_2getf")
@@ -562,30 +563,137 @@ _data = {
 &"walk_up": SubResource("Animation_mdaju")
 }
 
+[sub_resource type="Animation" id="Animation_r57px"]
+resource_name = "flash_red"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.75338984, 2.382472e-06, 5.7756904e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hg0hj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pe0xw"]
+resource_name = "flash_green"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8117647, 1, 0.98039216, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pe0xw"]
+_data = {
+&"RESET": SubResource("Animation_hg0hj"),
+&"flash_green": SubResource("Animation_pe0xw"),
+&"flash_red": SubResource("Animation_r57px")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2getf")
 metadata/_edit_horizontal_guides_ = [-11.0]
 
-[node name="HealthComponent" parent="." instance=ExtResource("1_5gnj7")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("anim") instance=ExtResource("1_5gnj7")]
+current_health = 70
+anim = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_mdaju")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+clip_children = 2
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 19.0
+offset_bottom = 19.0
+color = Color(0.8117647, 1, 0.98039216, 1)
+
+[node name="MovementAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_vjvuw")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="MovementAnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource("5_r4x55")
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../MovementAnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/walking = false
 parameters/Idle/blend_position = Vector2(-0.010078371, 0.33632278)
 parameters/Walk/blend_position = Vector2(0.011807442, -0.57847536)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pe0xw")
+}
+
+[node name="TestHealthLabel" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -46.0
+offset_right = 23.0
+offset_bottom = -23.0
+text = "<null>"
+
+[node name="SunlightDamageTimer" type="Timer" parent="." node_paths=PackedStringArray("health_comp")]
+wait_time = 2.0
+autostart = true
+script = ExtResource("6_r57px")
+health_comp = NodePath("../HealthComponent")
