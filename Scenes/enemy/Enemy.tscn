@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu233gff1gn8a"]
+[gd_scene load_steps=7 format=3 uid="uid://bu233gff1gn8a"]
 
 [ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy/enemy.gd" id="1_aoy28"]
 [ext_resource type="PackedScene" uid="uid://72fpu6gyhf23" path="res://Scenes/enemy/EnemySprite.tscn" id="2_sbcbh"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="3_2hruc"]
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="4_ynj05"]
+[ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="5_sbcbh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 size = Vector2(5.9849815, 5.867138)
@@ -23,3 +24,6 @@ script = ExtResource("4_ynj05")
 position = Vector2(-1.0364099e-06, 0)
 scale = Vector2(2.9052844, 3.2222025)
 shape = SubResource("RectangleShape2D_xeo28")
+
+[node name="EnemyDamageCalculator" parent="." instance=ExtResource("5_sbcbh")]
+scale = Vector2(1.0905486, 1.0624803)

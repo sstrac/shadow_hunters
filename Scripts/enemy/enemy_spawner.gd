@@ -17,5 +17,4 @@ func spawn_enemy():
 	enemy.speed = speed
 	enemy.player_body = player_body
 	enemy.position = Vector2(0, 0)
-	print("Enemy has been spawned")
 	add_child(enemy)
