@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://kgv5wx7dpdi5"]
+[gd_scene load_steps=5 format=4 uid="uid://kgv5wx7dpdi5"]
 
-[ext_resource type="Script" uid="uid://c8muxr8qha6vh" path="res://Scenes/daylight_cycle.gd" id="1_d6m41"]
+[ext_resource type="Script" uid="uid://c8muxr8qha6vh" path="res://Scripts/daylight_cycle.gd" id="1_d6m41"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="1_qd5cb"]
 [ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/RadialLight.tscn" id="2_d6m41"]
+[ext_resource type="PackedScene" uid="uid://by5jn3gf7gt3k" path="res://Scenes/Shadow.tscn" id="4_61p2e"]
 
 [node name="DaylightCycle" type="Node2D" node_paths=PackedStringArray("dir_light")]
 script = ExtResource("1_d6m41")
@@ -17,10 +18,11 @@ tile_map_data = PackedByteArray("AAAEAAMAAgABAAIAAAAIAAEAAgABAAAAAAAKAAEAAgABAAA
 tile_set = ExtResource("1_qd5cb")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.9059998, 0.84299976, 0.7529998, 1)
+color = Color(0.73419595, 0.6763912, 0.6250225, 1)
+shadow_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+color = Color(0.5053437, 0.5053442, 0.50534385, 1)
 
 [node name="RadialLight" parent="." instance=ExtResource("2_d6m41")]
 position = Vector2(104, 71.00001)
@@ -30,3 +32,12 @@ scale = Vector2(0.62500006, 0.60156256)
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 222.0
+offset_top = 23.0
+offset_right = 262.0
+offset_bottom = 46.0
+
+[node name="Shadow" parent="." instance=ExtResource("4_61p2e")]
+position = Vector2(20, 85)
