@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/img/Vampires1_Idle_full.png" id="3_2getf"]
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
-[ext_resource type="Script" uid="uid://b2t6spukjcg5f" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
+[ext_resource type="Script" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(11, 12)
@@ -563,34 +563,6 @@ _data = {
 &"walk_up": SubResource("Animation_mdaju")
 }
 
-[sub_resource type="Animation" id="Animation_r57px"]
-resource_name = "flash_red"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.75338984, 2.382472e-06, 5.7756904e-07, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_hg0hj"]
 length = 0.001
 tracks/0/type = "value"
@@ -632,6 +604,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.8117647, 1, 0.98039216, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r57px"]
+resource_name = "flash_red"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.75338984, 2.382472e-06, 5.7756904e-07, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pe0xw"]
