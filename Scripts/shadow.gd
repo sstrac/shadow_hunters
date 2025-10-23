@@ -20,4 +20,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _process(delta: float) -> void:
-	shadow_light.color.a = 1 - GameProgression.day_progress
+	shadow_light.color.a = 1 - DayProgression.progress

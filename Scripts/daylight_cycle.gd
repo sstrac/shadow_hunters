@@ -9,6 +9,6 @@ func _ready() -> void:
 	dir_light.color = MORNING
 
 func _process(delta: float) -> void:
-	get_node("Label").set_text('%f' % GameProgression.day_progress)
+	get_node("Label").set_text('%f' % DayProgression.progress)
 
-	dir_light.color = lerp(MORNING, NIGHT, GameProgression.day_progress )
+	dir_light.color = lerp(MORNING, NIGHT, DayProgression.progress )

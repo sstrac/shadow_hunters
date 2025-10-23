@@ -17,7 +17,7 @@ config/icon="res://Assets/img/icon.svg"
 
 [autoload]
 
-GameProgression="*res://Scripts/game_progression.gd"
+DayProgression="*res://Scripts/day_progression.gd"
 
 [input]
 
