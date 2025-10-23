@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var shadow_light: PointLight2D = get_node("PointLight2D")
+
 var health = 10
 
 func _on_body_entered(body: Node2D) -> void:
@@ -15,3 +17,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if timer != null:	
 		timer.remove_shadow()
 		
+
+
+func _process(delta: float) -> void:
+	shadow_light.color.a = 1 - DayProgression.progress

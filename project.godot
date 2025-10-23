@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ShadowHunters"
-run/main_scene="uid://umgcdxoyclht"
+run/main_scene="uid://kgv5wx7dpdi5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/img/icon.svg"
+
+[autoload]
+
+DayProgression="*res://Scripts/day_progression.gd"
 
 [input]
 
