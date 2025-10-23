@@ -19,7 +19,6 @@ tile_set = ExtResource("1_qd5cb")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.73419595, 0.6763912, 0.6250225, 1)
-shadow_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5053437, 0.5053442, 0.50534385, 1)
