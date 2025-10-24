@@ -7,7 +7,7 @@
 gradient = ExtResource("1_pshx0")
 fill = 1
 fill_from = Vector2(0.508547, 0.51282054)
-fill_to = Vector2(0.041214313, 0)
+fill_to = Vector2(0.040346995, 0)
 
 [sub_resource type="Animation" id="Animation_mx8kq"]
 length = 0.001
@@ -47,7 +47,6 @@ _data = {
 }
 
 [node name="RadialLight" type="PointLight2D"]
-visible = false
 color = Color(0.5033745, 0.5033746, 0.5033746, 1)
 texture = SubResource("GradientTexture2D_ec7fy")
 script = ExtResource("1_8kgub")
@@ -58,6 +57,7 @@ libraries = {
 }
 
 [node name="FlickerTimer" type="Timer" parent="."]
-wait_time = 2.0
 
 [node name="OnTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
