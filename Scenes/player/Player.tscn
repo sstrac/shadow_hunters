@@ -1,14 +1,61 @@
-[gd_scene load_steps=63 format=3 uid="uid://rgcace126kog"]
+[gd_scene load_steps=73 format=3 uid="uid://rgcace126kog"]
 
 [ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player/player.gd" id="1_2getf"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
 [ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/img/Vampires1_Idle_full.png" id="3_2getf"]
+[ext_resource type="Texture2D" uid="uid://c732nke566w45" path="res://Assets/img/smoke_animated_8x32.png" id="3_hg0hj"]
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
-[ext_resource type="Script" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
+[ext_resource type="Script" uid="uid://b2t6spukjcg5f" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
+[ext_resource type="Script" uid="uid://beeabk3ahhp7y" path="res://Scenes/player/health_bar.gd" id="8_pe0xw"]
+[ext_resource type="AudioStream" uid="uid://c7mhe77wmcuo8" path="res://Assets/sfx/burning.wav" id="8_trp67"]
+[ext_resource type="AudioStream" uid="uid://cj2c1i3r18ymf" path="res://Assets/sfx/take_damage.wav" id="10_xb7k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe0xw"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(0, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trp67"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(8, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb7k6"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(16, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v18lm"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(24, 0, 8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u68r"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(32, 0, 8, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8poa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe0xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trp67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb7k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v18lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u68r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2getf"]
 atlas = ExtResource("3_2getf")
@@ -643,15 +690,21 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2getf")
-metadata/_edit_horizontal_guides_ = [-11.0]
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("anim") instance=ExtResource("1_5gnj7")]
-current_health = 70
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("anim", "audio") instance=ExtResource("1_5gnj7")]
 anim = NodePath("../AnimationPlayer")
+audio = NodePath("../DamageAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_mdaju")
+
+[node name="Smoke" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_h8poa")
+autoplay = "default"
+frame_progress = 0.35898438
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
@@ -677,23 +730,38 @@ tree_root = ExtResource("5_r4x55")
 anim_player = NodePath("../MovementAnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/walking = false
-parameters/Idle/blend_position = Vector2(-0.010078371, 0.33632278)
-parameters/Walk/blend_position = Vector2(0.011807442, -0.57847536)
+parameters/Idle/blend_position = Vector2(-0.022931218, 0.4136808)
+parameters/Walk/blend_position = Vector2(0.06480563, -0.24429965)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_pe0xw")
 }
 
-[node name="TestHealthLabel" type="Label" parent="."]
-offset_left = -25.0
-offset_top = -46.0
-offset_right = 23.0
-offset_bottom = -23.0
-text = "<null>"
-
-[node name="SunlightDamageTimer" type="Timer" parent="." node_paths=PackedStringArray("health_comp")]
+[node name="SunlightDamageTimer" type="Timer" parent="." node_paths=PackedStringArray("health_comp", "smoke", "smoke_audio")]
 wait_time = 2.0
 autostart = true
 script = ExtResource("6_r57px")
 health_comp = NodePath("../HealthComponent")
+smoke = NodePath("../Smoke")
+smoke_audio = NodePath("../SmokeAudio")
+
+[node name="SmokeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_trp67")
+autoplay = true
+
+[node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_comp")]
+modulate = Color(1, 0, 0.16470589, 1)
+offset_left = 7.0
+offset_top = -19.0
+offset_right = 23.0
+offset_bottom = -15.0
+step = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("8_pe0xw")
+health_comp = NodePath("../HealthComponent")
+
+[node name="DamageAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_xb7k6")
+pitch_scale = 0.79
