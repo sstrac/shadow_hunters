@@ -6,6 +6,7 @@ const HEALING_ANIMATION = 'flash_green'
 @export var maximum_health : int = 100
 @export var current_health : int = 100 
 @export var anim: AnimationPlayer
+@export var audio: AudioStreamPlayer2D
 
 signal has_died
 signal health_changed
@@ -18,6 +19,7 @@ func decrease_health(damage):
 		current_health -= damage
 		health_changed.emit()
 		anim.play(DAMAGE_ANIMATION)
+		audio.play()
 		
 		if current_health <= 0:
 			has_died.emit()

@@ -12,7 +12,7 @@ var rolling_delta = 0
 var day_progress_until_switch_on = 0.7
 
 func _ready():
-	on_timer.wait_time = DayProgression.MAX_DAY_PROGRESS * day_progress_until_switch_on
+	on_timer.wait_time = DayProgression.MAX_DAY_PROGRESS_SECONDS * day_progress_until_switch_on
 	on_timer.timeout.connect(_switch_on)
 	on_timer.start()
 	
