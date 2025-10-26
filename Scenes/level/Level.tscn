@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bkgy8seq0am1h"]
+[gd_scene load_steps=7 format=4 uid="uid://bkgy8seq0am1h"]
 
 [ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scripts/level/level.gd" id="1_853c7"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="2_yjqay"]
 [ext_resource type="PackedScene" uid="uid://b0raqufcc5446" path="res://Scenes/level/Tree.tscn" id="3_yjqay"]
 [ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/player/Player.tscn" id="4_j1206"]
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="5_cgnvn"]
+[ext_resource type="PackedScene" uid="uid://cved2xk321qy1" path="res://Scenes/level/Lamp.tscn" id="6_cgnvn"]
 
 [node name="RealLevel1" type="Node2D"]
 script = ExtResource("1_853c7")
@@ -70,3 +71,8 @@ speed = 10
 position = Vector2(-55, 328)
 player_body = NodePath("../../PlayerCharacter")
 speed = 10
+
+[node name="Lamps" type="Node2D" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("6_cgnvn")]
+position = Vector2(152, 274)

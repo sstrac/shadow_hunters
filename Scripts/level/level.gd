@@ -8,6 +8,6 @@ const NIGHT = Color(0, 0, 0, 1.0)
 func _ready() -> void:
 	dir_light.color = MORNING
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if DayProgression:
 		dir_light.color = lerp(MORNING, NIGHT, DayProgression.progress)
