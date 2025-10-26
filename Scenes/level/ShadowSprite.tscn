@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1xuupikwik72"]
+
+[ext_resource type="Script" uid="uid://cv1wnosf5vwpi" path="res://Scripts/level/shadow_sprite.gd" id="2_2q0iw"]
+
+[node name="ShadowSprite" type="Sprite2D"]
+clip_children = 1
+flip_v = true
+script = ExtResource("2_2q0iw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -194.0
+offset_top = -189.0
+offset_right = 190.0
+offset_bottom = 168.0
+color = Color(0, 0, 0, 1)

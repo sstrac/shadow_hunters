@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_DAY_PROGRESS_SECONDS = 10
+const MAX_DAY_PROGRESS_SECONDS = 60
 
 var timer
 var progress = 0

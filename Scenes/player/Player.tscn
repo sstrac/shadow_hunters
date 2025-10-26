@@ -689,6 +689,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_2getf")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("anim", "audio") instance=ExtResource("1_5gnj7")]
@@ -710,6 +711,7 @@ frame_progress = 0.35898438
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
+frame = 2
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)

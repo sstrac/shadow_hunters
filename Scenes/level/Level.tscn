@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bkgy8seq0am1h"]
+[gd_scene load_steps=9 format=4 uid="uid://bkgy8seq0am1h"]
 
 [ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scripts/level/level.gd" id="1_853c7"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="2_yjqay"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://rgcace126kog" path="res://Scenes/player/Player.tscn" id="4_j1206"]
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="5_cgnvn"]
 [ext_resource type="PackedScene" uid="uid://cved2xk321qy1" path="res://Scenes/level/Lamp.tscn" id="6_cgnvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgnvn"]
+size = Vector2(1164, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjysl"]
+size = Vector2(28, 684)
 
 [node name="RealLevel1" type="Node2D"]
 script = ExtResource("1_853c7")
@@ -26,6 +32,13 @@ position = Vector2(231, 60)
 [node name="Tree2" parent="Trees" instance=ExtResource("3_yjqay")]
 position = Vector2(379, 160)
 
+[node name="Tree3" parent="Trees" instance=ExtResource("3_yjqay")]
+position = Vector2(323, 1)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("3_yjqay")]
+position = Vector2(356, -12)
+scale = Vector2(-1, 1)
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("4_j1206")]
 position = Vector2(70, 101)
 
@@ -33,6 +46,8 @@ position = Vector2(70, 101)
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
+limit_right = 1152
+limit_bottom = 648
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.73419595, 0.6763912, 0.6250225, 1)
@@ -43,7 +58,7 @@ color = Color(0.5053437, 0.5053442, 0.50534385, 1)
 [node name="Spawners" type="Node2D" parent="."]
 
 [node name="EnemySpawner" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
-position = Vector2(191, -35)
+position = Vector2(192, -48)
 player_body = NodePath("../../PlayerCharacter")
 speed = 10
 
@@ -75,4 +90,22 @@ speed = 10
 [node name="Lamps" type="Node2D" parent="."]
 
 [node name="Lamp" parent="Lamps" instance=ExtResource("6_cgnvn")]
-position = Vector2(152, 274)
+position = Vector2(153, 274)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(575, -10)
+shape = SubResource("RectangleShape2D_cgnvn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(572, 658)
+shape = SubResource("RectangleShape2D_cgnvn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1165, 330)
+shape = SubResource("RectangleShape2D_bjysl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-14, 326)
+shape = SubResource("RectangleShape2D_bjysl")
