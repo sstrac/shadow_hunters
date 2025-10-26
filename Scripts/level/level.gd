@@ -9,4 +9,5 @@ func _ready() -> void:
 	dir_light.color = MORNING
 
 func _process(delta: float) -> void:
-	dir_light.color = lerp(MORNING, NIGHT, DayProgression.progress)
+	if DayProgression:
+		dir_light.color = lerp(MORNING, NIGHT, DayProgression.progress)

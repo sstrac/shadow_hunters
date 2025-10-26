@@ -710,7 +710,6 @@ frame_progress = 0.35898438
 clip_children = 2
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
-frame = 3
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://3qp0btdn4wnf"]
 
-[ext_resource type="Script" uid="uid://bwbiwlrr2q84e" path="res://Scripts/radial_light.gd" id="1_8kgub"]
+[ext_resource type="Script" uid="uid://bwbiwlrr2q84e" path="res://Scripts/level/radial_light.gd" id="1_8kgub"]
 [ext_resource type="Gradient" uid="uid://cxsh6ab5s73k" path="res://Assets/RadialLight.tres" id="1_pshx0"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ec7fy"]

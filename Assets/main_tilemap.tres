@@ -169,6 +169,8 @@ texture = ExtResource("2_t00u7")
 8:0/0 = 0
 8:3/size_in_atlas = Vector2i(2, 3)
 8:3/0 = 0
+4:4/0 = 0
+3:5/0 = 0
 
 [resource]
 terrain_set_0/mode = 0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0bawtxa5fsse" path="res://Assets/img/torch.png" id="1_h1t0l"]
 [ext_resource type="Texture2D" uid="uid://brj5xs31okokt" path="res://Assets/img/torch_flame.png" id="2_beu3c"]
-[ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/RadialLight.tscn" id="3_a56tq"]
+[ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/level/RadialLight.tscn" id="3_a56tq"]
 
 [sub_resource type="Animation" id="Animation_yqrfj"]
 length = 0.001

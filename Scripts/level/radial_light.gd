@@ -26,8 +26,9 @@ func _process(delta):
 	texture.fill_to.x = fill_to
 	
 	#Brightness based on time of day
-	if not Engine.is_editor_hint(): #Runs only outside editor (throws singlton retrieval errors otherwise)
-		color.a = DayProgression.progress
+	if not Engine.is_editor_hint(): #Runs only outside editor (throws singleton retrieval errors otherwise)
+		if DayProgression:
+			color.a = DayProgression.progress
 	
 	
 func _random_wait_time():

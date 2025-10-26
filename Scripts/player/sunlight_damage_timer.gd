@@ -9,10 +9,19 @@ var num_shadows = 0
 
 func _ready() -> void:
 	timeout.connect(_do_damage)
+	DayProgression.is_night.connect(_disable_burning_forever)
+
 	
 func _do_damage():
 	health_comp.decrease_health(damage)
 
+func _disable_burning_forever():
+	timeout.disconnect(_do_damage)
+	smoke.hide()
+	smoke_audio.stop()
+	num_shadows = 999
+	queue_free()
+	
 func add_shadow():
 	num_shadows += 1
 	stop()
