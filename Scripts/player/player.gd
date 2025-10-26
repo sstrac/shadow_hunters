@@ -8,15 +8,7 @@ var walking: bool = false
 var last_direction: Vector2
 
 func _ready():
-	#TEST called once to set label initially
-	update_health_label()
-	
-	#TEST connects the health_changed signal to the update label function here
-	health_comp.health_changed.connect(update_health_label)
-
-#TEST
-#updates the label to show health
-func update_health_label(): get_node("TestHealthLabel").text = '%d' % health_comp.current_health
+	pass
 	
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
