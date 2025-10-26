@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cobetleovo2uf"]
+
+[ext_resource type="Script" uid="uid://3q8qo1elhu26" path="res://Scripts/enemy/flame_control.gd" id="1_mlkpa"]
+
+[node name="FireStarter" type="Area2D"]
+script = ExtResource("1_mlkpa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

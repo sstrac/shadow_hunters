@@ -22,21 +22,21 @@ size = Vector2(11, 12)
 atlas = ExtResource("3_hg0hj")
 region = Rect2(0, 0, 8, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_trp67"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u68r"]
 atlas = ExtResource("3_hg0hj")
-region = Rect2(8, 0, 8, 32)
+region = Rect2(32, 0, 8, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xb7k6"]
 atlas = ExtResource("3_hg0hj")
 region = Rect2(16, 0, 8, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_trp67"]
+atlas = ExtResource("3_hg0hj")
+region = Rect2(8, 0, 8, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_v18lm"]
 atlas = ExtResource("3_hg0hj")
 region = Rect2(24, 0, 8, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1u68r"]
-atlas = ExtResource("3_hg0hj")
-region = Rect2(32, 0, 8, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h8poa"]
 animations = [{
@@ -45,20 +45,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_pe0xw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_trp67")
+"texture": SubResource("AtlasTexture_1u68r")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xb7k6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v18lm")
+"texture": SubResource("AtlasTexture_trp67")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1u68r")
+"texture": SubResource("AtlasTexture_v18lm")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2getf"]
@@ -715,17 +715,24 @@ shape = SubResource("RectangleShape2D_mdaju")
 
 [node name="Smoke" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
-position = Vector2(1, -30)
+position = Vector2(-2, -24)
 sprite_frames = SubResource("SpriteFrames_h8poa")
 autoplay = "default"
 frame_progress = 0.35898438
+
+[node name="Smoke2" type="AnimatedSprite2D" parent="Smoke"]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+position = Vector2(5, 2)
+sprite_frames = SubResource("SpriteFrames_h8poa")
+autoplay = "default"
+flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
-frame = 2
+frame = 1
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)
@@ -769,10 +776,10 @@ autoplay = true
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("health_comp")]
 modulate = Color(1, 0, 0.16470589, 1)
-offset_left = 8.0
-offset_top = -31.0
-offset_right = 24.0
-offset_bottom = -27.0
+offset_left = -13.0
+offset_top = -46.0
+offset_right = 13.0
+offset_bottom = -42.0
 step = 1.0
 value = 50.0
 show_percentage = false

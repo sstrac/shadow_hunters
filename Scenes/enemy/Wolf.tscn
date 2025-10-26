@@ -10,7 +10,7 @@
 size = Vector2(25, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvutt"]
-size = Vector2(6.090295, 3.1034675)
+size = Vector2(8.155497, 3.413814)
 
 [node name="Wolf" type="Node2D"]
 script = ExtResource("1_pbcal")
@@ -23,6 +23,7 @@ current_health = 50
 [node name="WolfSprite" parent="." instance=ExtResource("3_pbcal")]
 
 [node name="EnemyDamageCalculator" parent="." instance=ExtResource("2_ic838")]
+collision_mask = 2
 damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDamageCalculator"]
@@ -34,6 +35,6 @@ debug_color = Color(3.898591e-06, 0.6256145, 0.5214982, 0.41960785)
 script = ExtResource("5_pbcal")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementControlArea"]
-position = Vector2(0.15298116, -1.0000002)
+position = Vector2(3.1529813, -1.5)
 scale = Vector2(2.9052844, 3.2222025)
 shape = SubResource("RectangleShape2D_dvutt")
