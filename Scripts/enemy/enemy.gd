@@ -2,14 +2,14 @@ extends Node2D
 @export var player_body : Node
 @export var max_speed : int
 
-@onready var area2d = get_node("Area2D")
+@onready var movement_control_area = get_node("MovementControlArea")
 
 var speed: int
 
 func _ready():
 	speed = max_speed
-	area2d.stop.connect(func(): speed = 0)
-	area2d.move.connect(func(): speed = max_speed)
+	movement_control_area.stop.connect(func(): speed = 0)
+	movement_control_area.move.connect(func(): speed = max_speed)
 
 
 func _process(_delta):

@@ -1,19 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0raqufcc5446"]
+[gd_scene load_steps=5 format=3 uid="uid://b0raqufcc5446"]
 
+[ext_resource type="Script" uid="uid://d3rvrtssp1l64" path="res://Scripts/level/feature.gd" id="1_5vltj"]
 [ext_resource type="Texture2D" uid="uid://cmcneh2cickpw" path="res://Assets/img/tree.png" id="1_yknac"]
 [ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_8thjf"]
 [ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="3_8thjf"]
 
-[node name="Tree" type="Node2D"]
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_5vltj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yknac")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -20)
+polygon = PackedVector2Array(-3, 11, -3, 17, -5, 19, -5, 20, 6, 20, 6, 19, 1, 17, 0, 15, 0, 11)
 
 [node name="ShadowSprite" parent="." instance=ExtResource("2_8thjf")]
-position = Vector2(0, 40)
+position = Vector2(0, 20)
+texture = ExtResource("1_yknac")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
 texture = ExtResource("1_yknac")
 
 [node name="ShadowCollision" parent="." instance=ExtResource("3_8thjf")]
+position = Vector2(0, -20)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShadowCollision"]
 position = Vector2(0, 40)

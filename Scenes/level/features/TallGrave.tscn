@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8rsnhwix7f30"]
+
+[ext_resource type="Script" uid="uid://cqemjtxqpbmc4" path="res://Scripts/level/tall_grave.gd" id="1_1tlbp"]
+[ext_resource type="Texture2D" uid="uid://wqmcv0oi30ma" path="res://Assets/shadow_hunters_tilemap_16.png" id="2_u2545"]
+[ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_ykyor"]
+[ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="4_ykyor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oov2"]
+size = Vector2(16, 16)
+
+[node name="TallGrave" type="StaticBody2D"]
+script = ExtResource("1_1tlbp")
+
+[node name="ShadowSprite" parent="." instance=ExtResource("2_ykyor")]
+position = Vector2(0, 24)
+texture = ExtResource("2_u2545")
+region_enabled = true
+region_rect = Rect2(48, 96, 19, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_u2545")
+region_enabled = true
+region_rect = Rect2(48, 96, 19, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3oov2")
+
+[node name="ShadowCollision" parent="." instance=ExtResource("4_ykyor")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShadowCollision"]
+position = Vector2(0, 24)
+polygon = PackedVector2Array(-2.5, 15, -3.5, 15, -3.5, 14, -4.5, 14, -4.5, 13, -5.5, 13, -5.5, 12, -6.5, 12, -6.5, 6, -5.5, 6, -5.5, 5, -4.5, 5, -4.5, 4, -9.5, 4, -9.5, 0, -3.5, 0, -3.5, -6, -4.5, -6, -4.5, -7, -5.5, -7, -5.5, -12, -6.5, -12, -6.5, -13, -7.5, -13, -7.5, -16, 7.5, -16, 7.5, -13, 6.5, -13, 6.5, -12, 5.5, -12, 5.5, -7, 4.5, -7, 4.5, -6, 3.5, -6, 3.5, 0, 9.5, 0, 9.5, 4, 4.5, 4, 4.5, 5, 5.5, 5, 5.5, 6, 6.5, 6, 6.5, 12, 5.5, 12, 5.5, 13, 4.5, 13, 4.5, 14, 3.5, 14, 3.5, 15, 2.5, 15, 2.5, 16, -2.5, 16)
