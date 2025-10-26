@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0raqufcc5446"]
 
 [ext_resource type="Texture2D" uid="uid://cmcneh2cickpw" path="res://Assets/img/tree.png" id="1_yknac"]
-[ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/ShadowSprite.tscn" id="2_8thjf"]
-[ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/ShadowCollision.tscn" id="3_8thjf"]
+[ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_8thjf"]
+[ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="3_8thjf"]
 
 [node name="Tree" type="Node2D"]
 
