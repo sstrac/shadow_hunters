@@ -17,10 +17,8 @@ func get_input():
 	if velocity != Vector2.ZERO:
 		last_direction = velocity.normalized()
 
-func _process(_delta):
-	z_index = int(global_position.y)
-
 func _physics_process(_delta):
+	z_index = int(global_position.y)
 	get_input()
 	movement_animation()
 	move_and_slide()

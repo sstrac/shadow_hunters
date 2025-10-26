@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://kgv5wx7dpdi5"]
 
-[ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scenes/level_1.gd" id="1_61p2e"]
+[ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scripts/level/level.gd" id="1_61p2e"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="1_qd5cb"]
-[ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/RadialLight.tscn" id="2_d6m41"]
-[ext_resource type="PackedScene" uid="uid://by5jn3gf7gt3k" path="res://Scenes/Shadow.tscn" id="4_61p2e"]
+[ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/level/RadialLight.tscn" id="2_d6m41"]
+[ext_resource type="PackedScene" uid="uid://by5jn3gf7gt3k" path="res://Scenes/level/Shadow.tscn" id="4_61p2e"]
 
 [node name="DaylightCycle" type="Node2D"]
 script = ExtResource("1_61p2e")

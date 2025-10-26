@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu233gff1gn8a"]
+[gd_scene load_steps=9 format=3 uid="uid://bu233gff1gn8a"]
 
 [ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy/enemy.gd" id="1_aoy28"]
 [ext_resource type="PackedScene" uid="uid://72fpu6gyhf23" path="res://Scenes/enemy/EnemySprite.tscn" id="2_sbcbh"]
@@ -9,7 +9,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 size = Vector2(5.9849815, 5.867138)
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hruc"]
+size = Vector2(17.422424, 18.823877)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbcbh"]
+size = Vector2(10, 7)
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_aoy28")
 max_speed = 30
 
@@ -17,13 +23,25 @@ max_speed = 30
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_2hruc")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MovementControlArea" type="Area2D" parent="."]
+collision_mask = 3
 script = ExtResource("4_ynj05")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementControlArea"]
 position = Vector2(-1.0364099e-06, 0)
 scale = Vector2(2.9052844, 3.2222025)
 shape = SubResource("RectangleShape2D_xeo28")
+debug_color = Color(0.10756073, 0.5946664, 0.41189647, 0.41960785)
 
 [node name="EnemyDamageCalculator" parent="." instance=ExtResource("5_sbcbh")]
 scale = Vector2(1.0905486, 1.0624803)
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyDamageCalculator"]
+position = Vector2(0.45848516, 4.7684597e-07)
+shape = SubResource("RectangleShape2D_2hruc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_sbcbh")
+debug_color = Color(0.84010965, 0.19445354, 0.8110493, 0.41960785)
