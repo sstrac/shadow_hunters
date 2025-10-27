@@ -2,7 +2,7 @@ extends Area2D
 
 
 func _ready():
-	DayProgression.is_night.connect(queue_free)
+	DayProgression.end.connect(queue_free)
 	
 
 func _on_body_entered(body: Node2D) -> void:
