@@ -20,6 +20,10 @@ config/icon="res://Assets/img/icon.svg"
 DayProgression="*res://Scripts/level/day_progression.gd"
 EnemyTracker="*res://Scripts/enemy_tracker.gd"
 
+[gui]
+
+common/snap_controls_to_pixels=false
+
 [input]
 
 left={

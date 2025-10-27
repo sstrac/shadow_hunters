@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bp2t64apa7hmy"]
+
+[ext_resource type="Shader" uid="uid://blf6xixjisphn" path="res://Assets/semicircle.gdshader" id="1_rafhr"]
+[ext_resource type="Script" uid="uid://bs1lynhr0epqx" path="res://Scripts/sundial.gd" id="1_ut1na"]
+[ext_resource type="Shader" uid="uid://c6n3fp0pl0ynt" path="res://Assets/circle.gdshader" id="1_yyrxf"]
+[ext_resource type="Shader" uid="uid://d1v1dx5vamvve" path="res://Assets/iscosceles_triangle.gdshader" id="3_kcr4w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rafhr"]
+shader = ExtResource("1_yyrxf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcr4w"]
+shader = ExtResource("1_rafhr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyrxf"]
+shader = ExtResource("1_yyrxf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ut1na"]
+shader = ExtResource("3_kcr4w")
+
+[node name="Sundial" type="Node2D"]
+modulate = Color(1, 1, 1, 0.89411765)
+script = ExtResource("1_ut1na")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rafhr")
+offset_right = 120.0
+offset_bottom = 68.0
+color = Color(0.513234, 0.51323235, 0.5132333, 0.6627451)
+
+[node name="Sun" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rafhr")
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 45.0
+color = Color(0.97544664, 0.904486, 0.3752533, 1)
+
+[node name="Moon" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kcr4w")
+offset_left = 97.0
+offset_top = 22.0
+offset_right = 123.0
+offset_bottom = 47.0
+color = Color(0, 0.21979669, 0.3650845, 1)
+
+[node name="Dial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 33.0
+offset_right = 60.0
+offset_bottom = 33.0
+rotation = -1.5707964
+
+[node name="ColorRect3" type="ColorRect" parent="Dial"]
+visible = false
+material = SubResource("ShaderMaterial_yyrxf")
+layout_mode = 0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Dial"]
+material = SubResource("ShaderMaterial_ut1na")
+layout_mode = 0
+offset_left = -6.0
+offset_top = -27.189894
+offset_right = 6.0
+color = Color(0, 0, 0, 1)

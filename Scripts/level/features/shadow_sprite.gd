@@ -5,7 +5,7 @@ var start_modulate
 
 func _ready():
 	start_modulate = modulate.a
-	DayProgression.is_night.connect(queue_free)
+	DayProgression.end.connect(queue_free)
 
 	
 func _process(_delta: float) -> void:
