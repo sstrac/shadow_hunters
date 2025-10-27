@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnknha3s1il07"]
+[gd_scene load_steps=8 format=3 uid="uid://dnknha3s1il07"]
 
 [ext_resource type="Texture2D" uid="uid://yn727wwsjs84" path="res://Assets/img/bushes_color_corrected/Bushes32x32_02.png" id="1_b61nj"]
 [ext_resource type="Texture2D" uid="uid://cv870bsmy5phq" path="res://Assets/img/bushes/Bushes32x32_03.png" id="1_cm2cu"]
+[ext_resource type="Script" uid="uid://dnhwprkuk7dlv" path="res://Scripts/level/features/feature.gd" id="1_dl7io"]
 [ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_8cfon"]
 [ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="3_b61nj"]
+[ext_resource type="PackedScene" uid="uid://cjfcm24rbdv8a" path="res://Scenes/level/features/BushFire.tscn" id="5_eamnb"]
+[ext_resource type="PackedScene" uid="uid://slstn3fiuydx" path="res://Scenes/level/features/Flammable.tscn" id="5_f83sf"]
 
 [node name="Bush" type="StaticBody2D"]
+script = ExtResource("1_dl7io")
+
+[node name="Flammable" parent="." node_paths=PackedStringArray("fire_animation") instance=ExtResource("5_f83sf")]
+fire_animation = NodePath("../BushFire")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flammable"]
+position = Vector2(0.29999924, -14)
+polygon = PackedVector2Array(-14, -1, 14, -1, 15, 2, 16, 2, 16, 5, 14, 5, 14, 7, 13, 7, 12, 8, 12, 10, 12, 12, 10, 14, 9, 15, -8, 15, -10, 12, -13, 12, -14, 10, -15, 6, -15, 4, -15, 1)
 
 [node name="ShadowCollision" parent="." instance=ExtResource("3_b61nj")]
 position = Vector2(0, -15)
@@ -25,3 +36,7 @@ texture = ExtResource("1_b61nj")
 [node name="ShadowSprite" parent="." instance=ExtResource("2_8cfon")]
 position = Vector2(0, 15)
 texture = ExtResource("1_cm2cu")
+
+[node name="BushFire" parent="." instance=ExtResource("5_eamnb")]
+visible = false
+position = Vector2(-1, -15)

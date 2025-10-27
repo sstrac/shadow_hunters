@@ -16,7 +16,7 @@ func _on_body_entered(body: CollisionObject2D):
 		is_colliding = true
 		stop.emit()
 		
-func _on_body_exited(body):
+func _on_body_exited(body: CollisionObject2D):
 	if body.get_collision_layer_value(2): #if is player
 		is_colliding = false
 		move.emit()

@@ -1,5 +1,6 @@
-extends Node2D
-@export var player_body : Node
+extends CharacterBody2D
+
+var player_body : Node
 @export var max_speed : int
 
 @onready var movement_control_area = get_node("MovementControlArea")
@@ -10,6 +11,8 @@ func _ready():
 	speed = max_speed
 	movement_control_area.stop.connect(func(): speed = 0)
 	movement_control_area.move.connect(func(): speed = max_speed)
+	if not get_node("EnemySprite").flammable:
+		get_node("FireStarter").queue_free()
 
 
 func _process(_delta):
@@ -20,6 +23,7 @@ func _physics_process(delta: float):
 	move_towards_player_node(delta)
 
 
-func move_towards_player_node(delta: float):
+func move_towards_player_node(_delta: float):
 	var direction = (player_body.global_position - global_position).normalized()
-	global_position += direction * speed * delta
+	velocity = direction * speed
+	move_and_slide()

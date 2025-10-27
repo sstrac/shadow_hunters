@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjfcm24rbdv8a"]
+
+[ext_resource type="Texture2D" uid="uid://b87gq10ofiapb" path="res://Assets/img/bushes_color_corrected/bush_fire.png" id="1_ka4d1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ksyx"]
+atlas = ExtResource("1_ka4d1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e2j7"]
+atlas = ExtResource("1_ka4d1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj66q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ksyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e2j7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BushFire" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tj66q")
+autoplay = "default"

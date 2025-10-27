@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b07jsbyig8tv7"]
 
-[ext_resource type="Script" uid="uid://ben0b3klucxqr" path="res://Scripts/level/grave.gd" id="1_3oov2"]
+[ext_resource type="Script" uid="uid://ben0b3klucxqr" path="res://Scripts/level/features/grave.gd" id="1_3oov2"]
 [ext_resource type="Texture2D" uid="uid://wqmcv0oi30ma" path="res://Assets/shadow_hunters_tilemap_16.png" id="1_gp0k7"]
 [ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_1va0l"]
 [ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="4_8ids5"]

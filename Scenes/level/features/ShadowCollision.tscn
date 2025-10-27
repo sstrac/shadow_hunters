@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckgckoieuocgk"]
 
-[ext_resource type="Script" uid="uid://bd36h0520gle5" path="res://Scripts/level/shadow_collision.gd" id="1_gj78m"]
+[ext_resource type="Script" uid="uid://bd36h0520gle5" path="res://Scripts/level/features/shadow_collision.gd" id="1_gj78m"]
 
 [node name="ShadowCollision" type="Area2D"]
 collision_mask = 3

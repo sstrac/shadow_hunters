@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1xuupikwik72"]
 
-[ext_resource type="Script" uid="uid://cv1wnosf5vwpi" path="res://Scripts/level/shadow_sprite.gd" id="2_2q0iw"]
+[ext_resource type="Script" uid="uid://cv1wnosf5vwpi" path="res://Scripts/level/features/shadow_sprite.gd" id="2_2q0iw"]
 
 [node name="ShadowSprite" type="Sprite2D"]
 clip_children = 1
