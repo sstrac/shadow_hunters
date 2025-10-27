@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://b0raqufcc5446"]
 
-[ext_resource type="Script" uid="uid://d3rvrtssp1l64" path="res://Scripts/level/feature.gd" id="1_5vltj"]
+[ext_resource type="Script" uid="uid://d3rvrtssp1l64" path="res://Scripts/level/features/tree.gd" id="1_5vltj"]
 [ext_resource type="Texture2D" uid="uid://cmcneh2cickpw" path="res://Assets/img/tree.png" id="1_yknac"]
 [ext_resource type="PackedScene" uid="uid://c1xuupikwik72" path="res://Scenes/level/features/ShadowSprite.tscn" id="2_8thjf"]
 [ext_resource type="PackedScene" uid="uid://ckgckoieuocgk" path="res://Scenes/level/features/ShadowCollision.tscn" id="3_8thjf"]
-[ext_resource type="PackedScene" uid="uid://slstn3fiuydx" path="res://Scenes/level/features/FireManager.tscn" id="5_b8a3v"]
+[ext_resource type="PackedScene" uid="uid://slstn3fiuydx" path="res://Scenes/level/features/Flammable.tscn" id="5_b8a3v"]
 [ext_resource type="Texture2D" uid="uid://c5eha3s1s1eo6" path="res://Assets/img/burning_tree.png" id="6_pc54c"]
 [ext_resource type="PackedScene" uid="uid://3qp0btdn4wnf" path="res://Scenes/level/RadialLight.tscn" id="7_pc54c"]
 
@@ -69,12 +69,12 @@ polygon = PackedVector2Array(-2.1000004, 11.1, -2.1000004, 9.9, -0.8999996, 9.9,
 position = Vector2(0, 40)
 polygon = PackedVector2Array(-3.1000004, 10.1, -3.1000004, 8.9, -1.8999996, 8.9, -1.8999996, 10.1)
 
-[node name="FireManager" parent="." node_paths=PackedStringArray("fire_animation") instance=ExtResource("5_b8a3v")]
+[node name="Flammable" parent="." node_paths=PackedStringArray("fire_animation") instance=ExtResource("5_b8a3v")]
 collision_layer = 4
 collision_mask = 0
 fire_animation = NodePath("../AnimatedSprite2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FireManager"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flammable"]
 polygon = PackedVector2Array(-3, -10, -1, -10, 0, -5, 3, -2, -4, -2, -3, -4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

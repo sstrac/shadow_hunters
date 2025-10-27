@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="4_ynj05"]
 [ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="5_sbcbh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbcbh"]
-size = Vector2(10, 7)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 size = Vector2(5.9849815, 5.867138)
 
@@ -19,14 +16,12 @@ size = Vector2(17.422424, 18.823877)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynj05"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbcbh"]
+size = Vector2(10, 7)
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_aoy28")
 max_speed = 30
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_sbcbh")
-debug_color = Color(0.84010965, 0.19445354, 0.8110493, 0.41960785)
 
 [node name="MovementControlArea" type="Area2D" parent="."]
 collision_mask = 3
@@ -57,3 +52,8 @@ debug_color = Color(0.6427044, 0.5238731, 0.0062856837, 0.41960785)
 [node name="EnemySprite" parent="." instance=ExtResource("2_sbcbh")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_2hruc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_sbcbh")
+debug_color = Color(0.84010965, 0.19445354, 0.8110493, 0.41960785)

@@ -1,3 +1,4 @@
 1 - default
 2 - player body
 3 - flammable
+4 - boundaries

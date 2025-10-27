@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Scripts/level/features/feature.gd"
 
 const TREE_1 = preload("res://Assets/img/tree.png")
 const TREE_2 = preload("res://Assets/img/tree2.png")
@@ -9,7 +9,3 @@ const TREE_2 = preload("res://Assets/img/tree2.png")
 func _ready() -> void:
 	sprite.texture = [TREE_1, TREE_2].pick_random()
 	s_sprite.texture = [TREE_1, TREE_2].pick_random()
-
-
-func _process(_delta: float) -> void:
-	z_index = int(global_position.y)

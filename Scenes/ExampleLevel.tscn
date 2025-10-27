@@ -13,7 +13,7 @@ scale = Vector2(12.15625, 8.2734375)
 texture = ExtResource("1_g6ypt")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_buwwh")]
-position = Vector2(873, 251)
+position = Vector2(582, 145)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("3_gl4sr")]
 position = Vector2(622.99994, 256)

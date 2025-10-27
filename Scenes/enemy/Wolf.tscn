@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5a5tgin4x0lt"]
+[gd_scene load_steps=9 format=3 uid="uid://5a5tgin4x0lt"]
 
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_nm7km"]
 [ext_resource type="Script" uid="uid://cwk0y2ttx0cpp" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
@@ -7,12 +7,15 @@
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="5_pbcal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcal"]
-size = Vector2(25, 10)
+size = Vector2(27, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvutt"]
-size = Vector2(8.155497, 3.413814)
+size = Vector2(8.260809, 3.1034672)
 
-[node name="Wolf" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwoc1"]
+size = Vector2(21.5, 8)
+
+[node name="Wolf" type="CharacterBody2D"]
 script = ExtResource("1_pbcal")
 max_speed = 50
 
@@ -27,14 +30,21 @@ collision_mask = 2
 damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDamageCalculator"]
-position = Vector2(2.5, -1)
+position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_pbcal")
-debug_color = Color(3.898591e-06, 0.6256145, 0.5214982, 0.41960785)
+debug_color = Color(0, 0.53233725, 0.9917533, 0.41960785)
 
 [node name="MovementControlArea" type="Area2D" parent="."]
+collision_mask = 3
 script = ExtResource("5_pbcal")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementControlArea"]
-position = Vector2(3.1529813, -1.5)
+position = Vector2(2.9999995, -1)
 scale = Vector2(2.9052844, 3.2222025)
 shape = SubResource("RectangleShape2D_dvutt")
+debug_color = Color(3.3691526e-07, 0.63468045, 0.42989466, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.25, -1)
+shape = SubResource("RectangleShape2D_mwoc1")
+debug_color = Color(0.81219584, 0.21339375, 0.8589934, 0.41960785)

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
 [ext_resource type="Script" uid="uid://b2t6spukjcg5f" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
-[ext_resource type="Script" uid="uid://beeabk3ahhp7y" path="res://Scenes/player/health_bar.gd" id="8_pe0xw"]
+[ext_resource type="Script" uid="uid://beeabk3ahhp7y" path="res://Scripts/player/health_bar.gd" id="8_pe0xw"]
 [ext_resource type="AudioStream" uid="uid://c7mhe77wmcuo8" path="res://Assets/sfx/burning.wav" id="8_trp67"]
 [ext_resource type="AudioStream" uid="uid://cj2c1i3r18ymf" path="res://Assets/sfx/take_damage.wav" id="10_xb7k6"]
 
@@ -694,6 +694,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_2getf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -732,7 +733,7 @@ clip_children = 2
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
-frame = 1
+frame = 3
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)
