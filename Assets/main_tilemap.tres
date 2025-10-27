@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://co64dlqtbmbo2"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://co64dlqtbmbo2"]
 
 [ext_resource type="PackedScene" uid="uid://b07jsbyig8tv7" path="res://Scenes/level/features/Grave.tscn" id="1_t00u7"]
 [ext_resource type="PackedScene" uid="uid://c8rsnhwix7f30" path="res://Scenes/level/features/TallGrave.tscn" id="2_b0upm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0raqufcc5446" path="res://Scenes/level/features/Tree.tscn" id="4_wigvi"]
 [ext_resource type="PackedScene" uid="uid://dnknha3s1il07" path="res://Scenes/level/features/Bush.tscn" id="5_ux4ru"]
 [ext_resource type="PackedScene" uid="uid://ccc58pnmnl8pf" path="res://Scenes/level/features/Hedge.tscn" id="6_aikld"]
+[ext_resource type="PackedScene" uid="uid://bwk3678fx4hdb" path="res://Scenes/level/features/BushWithGraves.tscn" id="7_wigvi"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b0upm"]
 scenes/1/scene = ExtResource("1_t00u7")
@@ -15,6 +16,7 @@ scenes/3/scene = ExtResource("3_dqmlj")
 scenes/4/scene = ExtResource("4_wigvi")
 scenes/5/scene = ExtResource("5_ux4ru")
 scenes/6/scene = ExtResource("6_aikld")
+scenes/7/scene = ExtResource("7_wigvi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b0upm"]
 texture = ExtResource("2_t00u7")

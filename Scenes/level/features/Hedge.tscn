@@ -13,14 +13,14 @@ script = ExtResource("1_u7agn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -14)
-polygon = PackedVector2Array(-14, -1, 15, -1, 15, 2, 15, 5, 15, 8, 13, 9, 12, 10, 12, 12, 10, 14, 9, 15, -8, 15, -11, 13, -11, 12, -12, 10, -13, 6, -13, 3, -14, 1)
+polygon = PackedVector2Array(14, -1, 14, 8, 12, 10, 12, 12, 10, 14, 9, 15, -8, 15, -11, 13, -11, 12, -12, 10, -13, -1)
 
 [node name="Flammable" parent="." node_paths=PackedStringArray("fire_animation") instance=ExtResource("5_fpjmw")]
 position = Vector2(0, -14)
 fire_animation = NodePath("../BushFire")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flammable"]
-polygon = PackedVector2Array(-14, -1, 15, -1, 15, 2, 15, 5, 15, 8, 13, 9, 12, 10, 12, 12, 10, 14, 9, 15, -8, 15, -11, 13, -13, 12, -14, 10, -15, 6, -15, 4, -15, 1)
+polygon = PackedVector2Array(-14, -1, 15, -1, 15, 8, 13, 9, 12, 10, 12, 12, 10, 14, 9, 15, -8, 15, -11, 13)
 
 [node name="ShadowCollision" parent="." instance=ExtResource("3_fpjmw")]
 position = Vector2(0, -14)
