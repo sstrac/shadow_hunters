@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://5a5tgin4x0lt"]
 
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_nm7km"]
-[ext_resource type="Script" uid="uid://cwk0y2ttx0cpp" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
+[ext_resource type="Script" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
 [ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="2_ic838"]
 [ext_resource type="PackedScene" uid="uid://cnp62kltijofb" path="res://Scenes/enemy/WolfSprite.tscn" id="3_pbcal"]
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="5_pbcal"]
@@ -17,7 +17,7 @@ size = Vector2(21.5, 8)
 
 [node name="Wolf" type="CharacterBody2D"]
 script = ExtResource("1_pbcal")
-max_speed = 50
+max_speed = 100
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_nm7km")]
 maximum_health = 50
