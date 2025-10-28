@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://5a5tgin4x0lt"]
+[gd_scene load_steps=13 format=3 uid="uid://5a5tgin4x0lt"]
 
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_nm7km"]
-[ext_resource type="Script" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
+[ext_resource type="Script" uid="uid://cwk0y2ttx0cpp" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
 [ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="2_ic838"]
 [ext_resource type="PackedScene" uid="uid://cnp62kltijofb" path="res://Scenes/enemy/WolfSprite.tscn" id="3_pbcal"]
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="5_pbcal"]
@@ -14,6 +14,24 @@ size = Vector2(8.260809, 3.1034672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwoc1"]
 size = Vector2(21.5, 8)
+
+[sub_resource type="Animation" id="Animation_hg0hj"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_pe0xw"]
+resource_name = "flash_green"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_r57px"]
+resource_name = "flash_red"
+length = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pe0xw"]
+_data = {
+&"RESET": SubResource("Animation_hg0hj"),
+&"flash_green": SubResource("Animation_pe0xw"),
+&"flash_red": SubResource("Animation_r57px")
+}
 
 [node name="Wolf" type="CharacterBody2D"]
 script = ExtResource("1_pbcal")
@@ -48,3 +66,10 @@ debug_color = Color(3.3691526e-07, 0.63468045, 0.42989466, 0.41960785)
 position = Vector2(3.25, -1)
 shape = SubResource("RectangleShape2D_mwoc1")
 debug_color = Color(0.81219584, 0.21339375, 0.8589934, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pe0xw")
+}
+
+[connection signal="has_died" from="HealthComponent" to="." method="_on_health_component_has_died"]

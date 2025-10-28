@@ -6,6 +6,7 @@ var player_body : Node
 @export var max_speed : int
 
 @onready var movement_control_area = get_node("MovementControlArea")
+@onready var health_comp = get_node("HealthComponent")
 
 var speed: int
 
@@ -32,3 +33,7 @@ func move_towards_player_node(_delta: float):
 	else:
 		sprite.flip_h = false
 	
+
+
+func _on_health_component_has_died() -> void:
+	queue_free()

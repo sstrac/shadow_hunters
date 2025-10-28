@@ -31,5 +31,4 @@ func move_towards_player_node(_delta: float):
 
 
 func _on_health_component_has_died() -> void:
-	print("enemy died")
 	queue_free()
