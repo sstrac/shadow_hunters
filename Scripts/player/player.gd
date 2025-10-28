@@ -22,12 +22,12 @@ func get_input():
 
 	if velocity != Vector2.ZERO:
 		last_direction = velocity.normalized()
-	
+
 	attacking = Input.is_action_just_pressed("attack")
 
 func _physics_process(_delta):
 	z_index = int(global_position.y)
-		#health_comp.has_died.connect(on_player_died)		
+	health_comp.has_died.connect(on_player_died)		
 	get_input()
 	movement_animation()
 	move_and_slide()
@@ -63,9 +63,10 @@ func attack():
 		print("attack in progress")
 		var new_attack = AttackComponent.instantiate()
 		add_child(new_attack)
-		new_attack.position = self.position
-
-		#remove_child(new_attack)
+		if last_direction == Vector2(0, 0):
+			new_attack.position = Vector2(0, 20)
+		else:
+			new_attack.position = last_direction * 20
 
 		can_attack = false
 		get_tree().create_timer(attack_delay).timeout.connect(func(): can_attack = true)

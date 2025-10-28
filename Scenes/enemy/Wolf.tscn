@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://5a5tgin4x0lt"]
+[gd_scene load_steps=14 format=3 uid="uid://5a5tgin4x0lt"]
 
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_nm7km"]
 [ext_resource type="Script" uid="uid://cwk0y2ttx0cpp" path="res://Scripts/enemy/wolf.gd" id="1_pbcal"]
 [ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="2_ic838"]
 [ext_resource type="PackedScene" uid="uid://cnp62kltijofb" path="res://Scenes/enemy/WolfSprite.tscn" id="3_pbcal"]
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="5_pbcal"]
+[ext_resource type="AudioStream" uid="uid://cj2c1i3r18ymf" path="res://Assets/sfx/take_damage.wav" id="6_dvutt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcal"]
 size = Vector2(27, 11)
@@ -71,5 +72,10 @@ debug_color = Color(0.81219584, 0.21339375, 0.8589934, 0.41960785)
 libraries = {
 &"": SubResource("AnimationLibrary_pe0xw")
 }
+
+[node name="DamageAudio" type="AudioStreamPlayer2D" parent="." groups=["audio"]]
+position = Vector2(1, -12)
+stream = ExtResource("6_dvutt")
+pitch_scale = 0.79
 
 [connection signal="has_died" from="HealthComponent" to="." method="_on_health_component_has_died"]
