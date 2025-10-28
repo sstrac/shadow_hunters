@@ -12,12 +12,15 @@ signal has_died
 signal health_changed
 
 func _ready():
-	pass
+	anim = $"../AnimationPlayer"
+	audio = $"../DamageAudio"
+
 	
 func decrease_health(damage):
 	if current_health > 0:
 		current_health -= damage
 		health_changed.emit()
+		
 		anim.play(DAMAGE_ANIMATION)
 		audio.play()
 		

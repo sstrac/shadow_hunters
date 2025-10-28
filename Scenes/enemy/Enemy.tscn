@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu233gff1gn8a"]
+[gd_scene load_steps=16 format=3 uid="uid://bu233gff1gn8a"]
 
 [ext_resource type="Script" uid="uid://b3uwjqf6n6cf7" path="res://Scripts/enemy/enemy.gd" id="1_aoy28"]
 [ext_resource type="PackedScene" uid="uid://cobetleovo2uf" path="res://Scenes/enemy/FireStarter.tscn" id="2_2hruc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="3_2hruc"]
 [ext_resource type="Script" uid="uid://n67u64pp63i3" path="res://Scripts/enemy/enemy_collision.gd" id="4_ynj05"]
 [ext_resource type="PackedScene" uid="uid://c8jx7n7o5ndx" path="res://Scenes/enemy/EnemyDamageCalculator.tscn" id="5_sbcbh"]
+[ext_resource type="AudioStream" uid="uid://cj2c1i3r18ymf" path="res://Assets/sfx/take_damage.wav" id="7_ynj05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeo28"]
 size = Vector2(5.9849815, 5.867138)
@@ -18,6 +19,24 @@ radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbcbh"]
 size = Vector2(10, 7)
+
+[sub_resource type="Animation" id="Animation_hg0hj"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_pe0xw"]
+resource_name = "flash_green"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_r57px"]
+resource_name = "flash_red"
+length = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pe0xw"]
+_data = {
+&"RESET": SubResource("Animation_hg0hj"),
+&"flash_green": SubResource("Animation_pe0xw"),
+&"flash_red": SubResource("Animation_r57px")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_aoy28")
@@ -52,8 +71,22 @@ debug_color = Color(0.6427044, 0.5238731, 0.0062856837, 0.41960785)
 [node name="EnemySprite" parent="." instance=ExtResource("2_sbcbh")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_2hruc")]
+maximum_health = null
+current_health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_sbcbh")
 debug_color = Color(0.84010965, 0.19445354, 0.8110493, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pe0xw")
+}
+
+[node name="DamageAudio" type="AudioStreamPlayer2D" parent="." groups=["audio"]]
+position = Vector2(1, -12)
+stream = ExtResource("7_ynj05")
+pitch_scale = 0.79
+
+[connection signal="has_died" from="HealthComponent" to="." method="_on_health_component_has_died"]

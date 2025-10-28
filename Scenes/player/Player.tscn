@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b6ifas55npdx1" path="res://Scripts/player/player.gd" id="1_2getf"]
 [ext_resource type="PackedScene" uid="uid://b48yl0nf8wdqo" path="res://Scenes/HealthComponent.tscn" id="1_5gnj7"]
-[ext_resource type="Shader" path="res://Assets/circle.gdshader" id="2_v18lm"]
+[ext_resource type="Shader" uid="uid://c6n3fp0pl0ynt" path="res://Assets/circle.gdshader" id="2_v18lm"]
 [ext_resource type="Texture2D" uid="uid://g3pkjr72u7mh" path="res://Assets/img/Vampires1_Idle_full.png" id="3_2getf"]
 [ext_resource type="Texture2D" uid="uid://c732nke566w45" path="res://Assets/img/smoke_animated_8x32.png" id="3_hg0hj"]
 [ext_resource type="Texture2D" uid="uid://3qp2o7iks8ri" path="res://Assets/img/Vampires1_Walk_full.png" id="4_mdaju"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://duaic0oqoadsg" path="res://Assets/player_movement.tres" id="5_r4x55"]
 [ext_resource type="Script" uid="uid://b2t6spukjcg5f" path="res://Scripts/player/sunlight_damage_timer.gd" id="6_r57px"]
-[ext_resource type="Script" path="res://Scripts/player/health_bar.gd" id="8_pe0xw"]
+[ext_resource type="Script" uid="uid://beeabk3ahhp7y" path="res://Scripts/player/health_bar.gd" id="8_pe0xw"]
 [ext_resource type="AudioStream" uid="uid://c7mhe77wmcuo8" path="res://Assets/sfx/burning.wav" id="8_trp67"]
 [ext_resource type="AudioStream" uid="uid://cj2c1i3r18ymf" path="res://Assets/sfx/take_damage.wav" id="10_xb7k6"]
 
@@ -616,74 +616,14 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_hg0hj"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_pe0xw"]
 resource_name = "flash_green"
 length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.8117647, 1, 0.98039216, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_r57px"]
 resource_name = "flash_red"
 length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.827451), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.75338984, 2.382472e-06, 5.7756904e-07, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pe0xw"]
 _data = {
@@ -706,8 +646,7 @@ offset_right = 11.0
 offset_bottom = 3.0
 color = Color(0, 0, 0, 0.21568628)
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("anim", "audio") instance=ExtResource("1_5gnj7")]
-anim = NodePath("../AnimationPlayer")
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("audio") instance=ExtResource("1_5gnj7")]
 audio = NodePath("../DamageAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -733,7 +672,7 @@ clip_children = 2
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_c8bqh")
 animation = &"idle"
-frame = 3
+frame = 2
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0)
