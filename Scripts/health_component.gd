@@ -18,8 +18,8 @@ func decrease_health(damage):
 	if current_health > 0:
 		current_health -= damage
 		health_changed.emit()
-		anim.play(DAMAGE_ANIMATION)
-		audio.play()
+		#anim.play(DAMAGE_ANIMATION)
+		#audio.play()
 		
 		if current_health <= 0:
 			has_died.emit()

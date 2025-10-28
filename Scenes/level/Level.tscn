@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="5_cgnvn"]
 [ext_resource type="PackedScene" uid="uid://cjon4q2rci7jg" path="res://Scenes/level/Sculpture.tscn" id="7_bjysl"]
 [ext_resource type="PackedScene" uid="uid://bp2t64apa7hmy" path="res://Scenes/Sundial.tscn" id="8_7g7a0"]
-[ext_resource type="Shader" path="res://Assets/fog.gdshader" id="9_8onf0"]
+[ext_resource type="Shader" uid="uid://chfwxoxb65ld" path="res://Assets/fog.gdshader" id="9_8onf0"]
 [ext_resource type="PackedScene" uid="uid://bsbs47pk0kymc" path="res://Scenes/GameOver.tscn" id="9_aic4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgnvn"]
