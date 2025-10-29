@@ -23,6 +23,7 @@ EnemyTracker="*res://Scripts/enemy_tracker.gd"
 [gui]
 
 common/snap_controls_to_pixels=false
+theme/custom_font="uid://bc8owcntecyxj"
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bkgy8seq0am1h"]
+[gd_scene load_steps=16 format=4 uid="uid://bkgy8seq0am1h"]
 
 [ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scripts/level/level.gd" id="1_853c7"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="2_yjqay"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://beffvkqeoq23" path="res://Scenes/enemy/EnemySpawner.tscn" id="5_cgnvn"]
 [ext_resource type="PackedScene" uid="uid://cjon4q2rci7jg" path="res://Scenes/level/Sculpture.tscn" id="7_bjysl"]
 [ext_resource type="PackedScene" uid="uid://bp2t64apa7hmy" path="res://Scenes/Sundial.tscn" id="8_7g7a0"]
+[ext_resource type="PackedScene" uid="uid://cs3w3582mbrsf" path="res://Scenes/Winner.tscn" id="9_0srih"]
 [ext_resource type="Shader" uid="uid://chfwxoxb65ld" path="res://Assets/fog.gdshader" id="9_8onf0"]
 [ext_resource type="PackedScene" uid="uid://bsbs47pk0kymc" path="res://Scenes/GameOver.tscn" id="9_aic4o"]
 
@@ -46,9 +47,8 @@ tile_set = ExtResource("2_yjqay")
 tile_map_data = PackedByteArray("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")
 tile_set = ExtResource("2_yjqay")
 
-[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("game_over_screen") instance=ExtResource("4_j1206")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("4_j1206")]
 position = Vector2(195, 51)
-game_over_screen = NodePath("../CanvasLayer/GameOver")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 zoom = Vector2(3, 3)
@@ -68,32 +68,26 @@ color = Color(0.5053437, 0.5053442, 0.50534385, 1)
 [node name="EnemySpawner" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(192, -48)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="EnemySpawner2" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(940, -52)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="EnemySpawner3" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(1188, 309)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="EnemySpawner4" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(942, 684)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="EnemySpawner5" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(183, 684)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="EnemySpawner6" parent="Spawners" node_paths=PackedStringArray("player_body") instance=ExtResource("5_cgnvn")]
 position = Vector2(-55, 328)
 player_body = NodePath("../../PlayerCharacter")
-speed = 10
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 8
@@ -135,5 +129,11 @@ position = Vector2(993, 390)
 [node name="Sundial" parent="CanvasLayer" instance=ExtResource("8_7g7a0")]
 position = Vector2(1009, 29)
 
+[node name="Winner" parent="CanvasLayer" instance=ExtResource("9_0srih")]
+process_mode = 3
+visible = false
+
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("9_aic4o")]
+process_mode = 3
+visible = false
 scale = Vector2(1.0013766, 1.0319506)
