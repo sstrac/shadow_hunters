@@ -7,8 +7,6 @@ var max_reached: bool = false
 
 signal won
 
-func _process(delta):
-	print(enemy_count)
 
 func add_enemy():
 	enemy_count += 1

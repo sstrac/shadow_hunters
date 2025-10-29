@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: int = 100
-@export var attack_delay = 0.1
+@export var attack_delay = 0.3
 @onready var movement_anim_tree: AnimationTree = get_node("MovementAnimationTree")
 @onready var health_comp = get_node("HealthComponent")
 

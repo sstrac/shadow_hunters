@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://djwrsy5nex0il"]
+
+[ext_resource type="Script" uid="uid://b6jsjvl20k5lv" path="res://Scripts/level/day_progression.gd" id="1_phiy7"]
+
+[node name="DayProgression" type="Node"]
+script = ExtResource("1_phiy7")
+
+[node name="RoundTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="NightTimer" type="Timer" parent="."]
+one_shot = true

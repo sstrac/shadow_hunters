@@ -17,8 +17,8 @@ config/icon="res://Assets/img/icon.svg"
 
 [autoload]
 
-DayProgression="*res://Scripts/level/day_progression.gd"
 EnemyTracker="*res://Scripts/enemy_tracker.gd"
+DayProgression="*res://Scenes/level/DayProgression.tscn"
 
 [gui]
 

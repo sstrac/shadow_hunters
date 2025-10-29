@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bkgy8seq0am1h"]
+[gd_scene load_steps=17 format=4 uid="uid://bkgy8seq0am1h"]
 
 [ext_resource type="Script" uid="uid://kpy0ansxe4ex" path="res://Scripts/level/level.gd" id="1_853c7"]
 [ext_resource type="TileSet" uid="uid://co64dlqtbmbo2" path="res://Assets/main_tilemap.tres" id="2_yjqay"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs3w3582mbrsf" path="res://Scenes/Winner.tscn" id="9_0srih"]
 [ext_resource type="Shader" uid="uid://chfwxoxb65ld" path="res://Assets/fog.gdshader" id="9_8onf0"]
 [ext_resource type="PackedScene" uid="uid://bsbs47pk0kymc" path="res://Scenes/GameOver.tscn" id="9_aic4o"]
+[ext_resource type="AudioStream" uid="uid://bgynv50p3480q" path="res://Assets/music/690624__victor_natas__spooky-jim-is-in-the-house.wav" id="11_0srih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgnvn"]
 size = Vector2(1164, 20)
@@ -137,3 +138,11 @@ visible = false
 process_mode = 3
 visible = false
 scale = Vector2(1.0013766, 1.0319506)
+
+[node name="NumEnemies" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_0srih")
+autoplay = true

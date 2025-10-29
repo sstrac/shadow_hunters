@@ -9,6 +9,7 @@ font_size = 136
 font_color = Color(0, 0.8965447, 0.83887947, 1)
 
 [node name="Winner" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 

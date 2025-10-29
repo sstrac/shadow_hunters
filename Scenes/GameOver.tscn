@@ -9,6 +9,7 @@ font_size = 136
 font_color = Color(1, 0, 0.27058825, 1)
 
 [node name="GameOver" type="Control"]
+process_mode = 3
 z_index = 4096
 layout_mode = 3
 anchors_preset = 15
@@ -44,3 +45,5 @@ offset_bottom = 450.0
 theme_override_font_sizes/font_size = 40
 text = "Retry"
 script = ExtResource("2_k52d1")
+
+[connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_pressed"]

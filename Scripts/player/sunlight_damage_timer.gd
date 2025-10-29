@@ -8,6 +8,7 @@ extends Timer
 
 var shaded_modulate = Color(0.345, 0.576, 0.718, 0.784)
 var num_shadows = 0
+var burn = true
 
 func _ready() -> void:
 	timeout.connect(_do_damage)
@@ -18,6 +19,7 @@ func _do_damage():
 	health_comp.decrease_health(damage)
 
 func _disable_burning_forever():
+	burn = false
 	timeout.disconnect(_do_damage)
 	smoke.hide()
 	smoke_audio.stop()
@@ -35,7 +37,7 @@ func add_shadow():
 	
 func remove_shadow():
 	num_shadows -= 1
-	if num_shadows == 0:
+	if num_shadows == 0 and burn:
 		start()
 		smoke.show()
 		smoke_audio.play()
