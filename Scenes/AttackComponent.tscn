@@ -17,8 +17,11 @@ offset_top = -20.0
 offset_right = 11.052631
 color = Color(1, 0, 0, 1)
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="AttackDurationTimer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
 
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
