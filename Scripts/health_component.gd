@@ -1,4 +1,5 @@
 extends Node
+class_name HealthComponent
 
 const DAMAGE_ANIMATION = 'flash_red'
 const HEALING_ANIMATION = 'flash_green'
@@ -20,7 +21,6 @@ func decrease_health(damage):
 	if current_health > 0:
 		current_health -= damage
 		health_changed.emit()
-		
 		anim.play(DAMAGE_ANIMATION)
 		audio.play()
 		

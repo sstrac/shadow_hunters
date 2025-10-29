@@ -58,9 +58,7 @@ func stop_all_sounds(parent_node):
 			node.stop()
 
 func attack():
-	#print("attempting to attack")
 	if (attacking && can_attack):
-		print("attack in progress")
 		var new_attack = AttackComponent.instantiate()
 		add_child(new_attack)
 		if last_direction == Vector2(0, 0):

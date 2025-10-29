@@ -32,7 +32,6 @@ func move_towards_player_node(_delta: float):
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
-	
 
 
 func _on_health_component_has_died() -> void:
