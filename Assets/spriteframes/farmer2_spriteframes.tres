@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cg7kj0k4ybws7"]
+
+[ext_resource type="Texture2D" uid="uid://buoi4iqrg4ygk" path="res://Assets/img/farmer2.png" id="1_5ytj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmgn8"]
+atlas = ExtResource("1_5ytj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo37a"]
+atlas = ExtResource("1_5ytj8")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmgn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo37a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

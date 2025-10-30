@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://72fpu6gyhf23"]
+[gd_scene load_steps=4 format=3 uid="uid://72fpu6gyhf23"]
 
 [ext_resource type="Script" uid="uid://benmf64j4xfwv" path="res://Scripts/enemy/enemy_sprite.gd" id="1_p61mc"]
-[ext_resource type="SpriteFrames" uid="uid://u1v1cbvo2ojl" path="res://Assets/spriteframes/enemy_spriteframes.tres" id="1_vlg6w"]
 [ext_resource type="PackedScene" uid="uid://dcddoavqciu3x" path="res://Scenes/enemy/PitchFork.tscn" id="2_p61mc"]
 [ext_resource type="PackedScene" uid="uid://ctvy64jig05p7" path="res://Scenes/enemy/Torch.tscn" id="3_5jvdr"]
 
@@ -9,7 +8,6 @@
 script = ExtResource("1_p61mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_vlg6w")
 autoplay = "default"
 
 [node name="Hand" type="Node2D" parent="."]
