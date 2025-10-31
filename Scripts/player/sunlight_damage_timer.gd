@@ -25,6 +25,7 @@ func _disable_burning_forever():
 	smoke_audio.stop()
 	num_shadows = 999
 	sprite.modulate = shaded_modulate
+	ShadedTracker.shaded = false
 	queue_free()
 
 
@@ -35,10 +36,16 @@ func add_shadow():
 	smoke_audio.stop()
 	sprite.modulate = shaded_modulate
 	
+	if num_shadows > 0:
+		ShadedTracker.shaded = true
+	
 func remove_shadow():
 	num_shadows -= 1
-	if num_shadows == 0 and burn:
-		start()
-		smoke.show()
-		smoke_audio.play()
-		sprite.modulate = Color.WHITE
+	if num_shadows == 0:
+		ShadedTracker.shaded = false
+		
+		if burn:
+			start()
+			smoke.show()
+			smoke_audio.play()
+			sprite.modulate = Color.WHITE

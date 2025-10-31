@@ -19,6 +19,7 @@ config/icon="res://Assets/img/icon.svg"
 
 EnemyTracker="*res://Scripts/enemy_tracker.gd"
 DayProgression="*res://Scenes/level/DayProgression.tscn"
+ShadedTracker="*res://Scripts/shaded_tracker.gd"
 
 [gui]
 
