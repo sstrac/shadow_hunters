@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs3w3582mbrsf"]
+[gd_scene load_steps=7 format=3 uid="uid://cs3w3582mbrsf"]
 
 [ext_resource type="FontFile" uid="uid://bc8owcntecyxj" path="res://Assets/fonts/Nightcore.ttf" id="1_ur5px"]
 [ext_resource type="Script" uid="uid://dj1720vcmdawo" path="res://Scripts/retry_button.gd" id="2_v0ybt"]
 [ext_resource type="Script" uid="uid://csoc0dm47rn7p" path="res://Scripts/level/num_enemies.gd" id="3_82f2s"]
 [ext_resource type="Script" uid="uid://bt8dvrkv7e28g" path="res://Scripts/level/time_shaded.gd" id="4_vp57e"]
+[ext_resource type="PackedScene" uid="uid://bywsja4irtt3i" path="res://Scenes/level/highscore.tscn" id="5_pybf8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0ybt"]
 font = ExtResource("1_ur5px")
@@ -69,5 +70,12 @@ text = "[center]Time Shaded[center]0"
 fit_content = true
 scroll_active = false
 script = ExtResource("4_vp57e")
+
+[node name="HighScore" parent="." instance=ExtResource("5_pybf8")]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 3.0
+offset_right = 753.0
+offset_bottom = 53.0
 
 [connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bywsja4irtt3i"]
+
+[ext_resource type="Script" uid="uid://ce22ynrcqtdyv" path="res://Scenes/rich_text_label.gd" id="1_28syj"]
+[ext_resource type="Script" uid="uid://bw6gd3skwh7yq" path="res://Scenes/rich_text_label_2.gd" id="2_xvvsd"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 425.0
+offset_top = 9.0
+offset_right = 749.0
+offset_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Longest Shaded Time"
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Most Enemies Killed"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("1_28syj")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("2_xvvsd")
