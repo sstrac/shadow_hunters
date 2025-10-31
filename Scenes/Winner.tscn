@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs3w3582mbrsf"]
+[gd_scene load_steps=5 format=3 uid="uid://cs3w3582mbrsf"]
 
 [ext_resource type="FontFile" uid="uid://bc8owcntecyxj" path="res://Assets/fonts/Nightcore.ttf" id="1_ur5px"]
 [ext_resource type="Script" uid="uid://dj1720vcmdawo" path="res://Scripts/retry_button.gd" id="2_v0ybt"]
+[ext_resource type="Script" uid="uid://csoc0dm47rn7p" path="res://Scripts/level/num_enemies.gd" id="3_82f2s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0ybt"]
 font = ExtResource("1_ur5px")
@@ -33,12 +34,26 @@ label_settings = SubResource("LabelSettings_v0ybt")
 
 [node name="RetryButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 365.0
-offset_right = 699.0
-offset_bottom = 450.0
-theme_override_font_sizes/font_size = 40
-text = "Play Again"
+offset_left = 430.0
+offset_top = 422.0
+offset_right = 719.0
+offset_bottom = 531.0
+theme_override_fonts/font = ExtResource("1_ur5px")
+theme_override_font_sizes/font_size = 50
+text = "Play Again?"
 script = ExtResource("2_v0ybt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 325.0
+offset_right = 722.0
+offset_bottom = 437.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Enemies Killed[center]0"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_82f2s")
 
 [connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_pressed"]
