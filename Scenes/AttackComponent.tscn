@@ -1,20 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnlynaxia0kwc"]
+[gd_scene load_steps=9 format=3 uid="uid://bnlynaxia0kwc"]
 
 [ext_resource type="Script" uid="uid://c6ud5skuy2pvb" path="res://Scenes/attack_component.gd" id="1_3yfc2"]
+[ext_resource type="Shader" uid="uid://c6n3fp0pl0ynt" path="res://Assets/circle.gdshader" id="2_7ahqt"]
+[ext_resource type="Texture2D" uid="uid://ctmnwrolm6uwg" path="res://Assets/my sword.png" id="3_rj42y"]
+[ext_resource type="Texture2D" uid="uid://cdacip8iu01cc" path="res://Assets/my sword going down a bit.png" id="4_7bjuq"]
+[ext_resource type="Texture2D" uid="uid://ct457ak04pqub" path="res://Assets/my sword going down.png" id="4_bl42q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yfc2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ahqt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qo1fy"]
+shader = ExtResource("2_7ahqt")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ahqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rj42y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7bjuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bl42q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="AttackComponent" type="Area2D"]
 script = ExtResource("1_3yfc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_3yfc2")
+shape = SubResource("CircleShape2D_7ahqt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
+material = SubResource("ShaderMaterial_qo1fy")
+offset_left = -11.0
 offset_top = -20.0
-offset_right = 11.052631
+offset_right = 10.052628
 color = Color(1, 0, 0, 1)
 
 [node name="AttackDurationTimer" type="Timer" parent="."]
@@ -22,6 +47,12 @@ wait_time = 0.2
 autostart = true
 
 [node name="AttackCooldownTimer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7ahqt")
+frame_progress = 0.5316729
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
